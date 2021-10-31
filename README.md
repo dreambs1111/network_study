@@ -1,4 +1,7 @@
 # NETWORK_STUDY 규칙
+# 필독[이미지 올리기]
+* https://caileb.tistory.com/201
+참고하세요
 
 ## 진행사항
 * 10/23 1차 study 1장 - 완료(성원, 윤서)
