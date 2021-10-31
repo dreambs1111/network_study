@@ -17,6 +17,3 @@
 * 발표 진행
 * 질문 사항
 * 다음주 일정 잡기
-# network_study
-# network_study
-# network_study
