@@ -12,6 +12,9 @@
 - IP주소는 10진수로 표기하므로 8비트 옥텟은 0~255의 값을 쓸 수 있음.
 - 3계층 주소인 IP주소는 네트워크 주소와 호스트 주소 두부분으로 나뉨.
 
+![image](https://user-images.githubusercontent.com/52841715/140639904-b6f37696-616a-4d3d-ac01-cd0111e9166b.png)
+
+
 **네트워크 주소**
 
 - 호스트들을 모은 네트워크를 지칭하는 주소. 네트워크 주소가 동일한 네트워크를 로컬 네트워크라고 함.
@@ -24,12 +27,13 @@
 - A클래스는 가장 큰 주소를 갖는데 약 1,600만 개의 IP주소를 가질 수 있음.
 - B클래스 : 약 6만 5천, C클래스 약 250개.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72bd8672-2ea5-47f4-9bec-01cf52640b9c/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639910-3ba7bf2b-2f19-4131-98f2-08da030cf753.png)
+
 
 - 네트워크의 주소 구분자가 이동할 수 있는 특성으로 인해 네트워크의 크기가 달라질 수 있음.
 - 다른 고정 주소체계에 비해 주소를 절약할 수 있는 특징이 있음.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1ad2aa20-e3d8-440f-8b41-bad03d00ddc5/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639920-71dc50ac-770f-443d-9f83-3c9b34665bde.png)
 
 - A, B, C 클래스는 맨 앞 옥텟의 주소만 보고 구분할 수 있는데 앞 옥
 텟의 주소가 0~127의 범위이면 이 주소는 A 클래스이다.
@@ -78,18 +82,17 @@
 - 2진수 숫자 1은 네트워크 주소, 0은 호스트 주소로 표시.
 - 우리가 편하게 받아들일 수 있는 10진수를 사용해 255.0.0.0, 255.255.0.0, 255.255.255.0와 같이 표현함.
 - 2진수 11111111을 10진수로 표현하면 255가 되어 255는 네트워크 주소 부분, 0은 호스트 주소 부분으로 구분됨.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c945b2a-9eac-4875-8bd8-9d9111aed64a/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639927-c9cb89ad-3d19-4670-9c02-7ed85a39240b.png)
 
 - 서브넷 마스크와 IP주소를 and 연산하여 네트워크 주소와, 호스트 주소를 뽑아냄
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/48f027c9-c105-4033-9158-fe43170128a1/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639936-f2aa40d8-f46d-412c-9cf3-55b3578376f7.png)
 
 - 만약 103.9.32.146 주소에 255.255.255.0 서브넷 마스크를 사용하는 IP는 네트워크 주소가 103.9.32.0이고 호스트 주소는 0.0.0.146이 됨.
 - 서브넷 마스크가 2진수 1인 부분(10진수 255인 부분)은 IP 숫자가 그대로 연산 결과가 되고 서브넷 마스크가 0인 부분은 모두 0으로 변경되기 때문.
 - 클래스리스 기반의 IP 네트워크에서는 네트워크를 표현하는 데 반드시 서브넷 마스크가 필요하고 서버나 PC에 IP주소를 부여할 때도 사용되어야 함.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/85eaa2e2-7cd5-4504-a703-ec6b5fcea1c4/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639939-7390c8ce-d153-43af-bd7c-39632a621eaf.png)
 
 **서브네팅**
 
@@ -115,7 +118,7 @@
 - 브로드캐스트 주소-1은 유효 IP 중 가장 큰 IP이다.
 - 2진수로 연산되어 있는 결괏값을 10진수로 변환한다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2f7e3012-c812-4ee9-a393-d42f86e2d239/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639958-a8b95470-4f5c-470e-9863-5826bab3ee41.png)
 
 - 기본 게이트웨이와 서브넷 마스크 설정이 제대로 되어 있는지 확인
 
@@ -134,7 +137,7 @@
 - 유효 IP 범위: 103.9.32.129 ~ 103.9.32.190(네트워크 주소와
 브로드캐스트 주소 사이)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e392874c-d902-4e4d-9719-628a49e8531c/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639965-5bd6dfc5-3a60-413c-8cc9-8ad13c13fe32.png)
 
 **네트워크 설계자 입장**
 
@@ -157,7 +160,7 @@
 - 사설 IP를 사용하면 인터넷에 직접 접속하지 못하지만 IP를 변환해주는 NAT 장비에서 공인 IP로 변경한 후에는 인터넷 접속이 가능.
 - 가정에서 많이 사용하는 공유기는 NAT 장비의 역할을 하는 대표적인 예.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4ff9965-7984-4cee-8105-0515457c92e6/Untitled.png)
+![image](https://user-images.githubusercontent.com/52841715/140639978-74958038-77e3-46b6-9249-4101303b2a94.png)
 
 **인터넷 표준**
 
