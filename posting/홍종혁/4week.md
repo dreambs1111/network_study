@@ -227,10 +227,20 @@ arp -a
 				2. 당연히 응답이 오면 안된다.
 			2. 상대방(동일 서브넷 상의 다른)의 ARP테이블 갱신
 				![image](https://user-images.githubusercontent.com/93480617/141674512-171b841a-37b8-4c73-a53c-9acadef81f91.png)
+				1. 그림처럼 A,B의 서버가 각각 1.2 / 1.3 IP주소를 가지고 가상의 1.1 IP주소로 서비스 하고 있음
+					- 이때 A와 B는 같은 데이터 베이스 서버이고 한대는 active 한대는 standby로 작동
+					- active서버를 사용해 통신하다 장애감지시 바로 standby서버가 active로 변경되며 무리없이 역할을 수행하기 위함.
+				2. 클라이언트에서 1.1로 통신을위해 ARP요청을 보냄
+				3. A,B장비 모두 ARP 요청을 수신하고 active상태인 A가 APR요청에 응답을 하게 됨
+				4. 클라이언트는 1.1 IP가 A라고 학습
+				5. 장애발생시 B가 통신하게 되는데 이 경우 클라이언트는 1.1 MAC주소가 A로 되어있기 때문에 통신이 불가능
+				6. 이러한 상황을 방지하기 위해 standby장비가 active가 되면 GARP 패킷을 네트워크에 보내서 클라이언트에게 MAC주소의 변경을 알려준다
 			3. HA(고가용성)용도의 클러스터링, VRRP, HSRP
-				1. 
+				1. 앞의 경우처럼 이중화를 위해 사용되기도 하지만 실제 MAC주소가 아닌 가상 MAC주소를 사용하는 경우
+					- 클러스터링, VRRP, HSRP와 같은 경우도 GARP가 사용
+					- 일반적으로 사용할 일이 없으므로 이 경우는 pass.
 
-### 3.5.4 RARP
+### [3.5.4] RARP
 - RARP는  Reverse ARP즉, 반대로 동작하는 ARP
 - GARP와 마찬가지로 ARP 프로토콜 구조는 같지만 필드에 들어가는 내용이 다르고 원래의 목적과 반대로 사용
 ![](https://user-images.githubusercontent.com/93480617/141238532-f6ab52c6-83b3-4993-83e0-e04feb0f2818.png)
@@ -248,6 +258,6 @@ key point == 동일네트워크와 원격지 네트워크 간 통신 동작 방�
 ![](https://user-images.githubusercontent.com/93480617/141238540-9500b9b6-495b-4418-a6ee-6be5a8dd8978.png)
 - 기본 게이트웨이는 3계층 장비가 수행, 여러 네트워크가 연결되면 적절한 경로를 지정해주는 역할
 - 5장 라우터/L3 스위치 : 3계층 장비에서 더 자세히 배웁니다.
-
+![](https://user-images.githubusercontent.com/93480617/141676265-6d9d4987-f5ea-46d7-9a75-5637d7702f02.png)
 ### 3.6.2 2계층 통신 vs 3계층 통신
 
